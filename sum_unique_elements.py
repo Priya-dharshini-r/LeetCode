@@ -13,3 +13,23 @@ class Solution:
         result = sum(sum_unique)
         return result
           
+# solution 2
+# Using divide and conquer method
+
+class Solution:
+    def sortedSquares(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        result = map(lambda x: x*x, nums)
+        result = list(result)
+        i = 0
+        j = n-1
+        final_list = []
+        while i<=j:
+            if result[i] > result[j]:
+                final_list.append(result[i])
+                i = i+1
+            else:
+                final_list.append(result[j])
+                j = j-1
+        final_result = final_list[::-1]
+        return final_result
